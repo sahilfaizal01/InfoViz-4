@@ -5,18 +5,7 @@ import pandas as pd
 import numpy as np
 from dash.dependencies import Input, Output
 
-df = pd.read_csv('CHIRS_cancer_data.csv')
-cancer_data = df[df['Health Topic']=='Cancer Indicators']
-
-# Preprocess the data
-data = cancer_data.iloc[:, :8]
-data['Three Year Average County Value'] = cancer_data.iloc[:, 11]
-data = data.dropna()
-
-# Ensure numeric conversion
-data['Date Year'] = pd.to_numeric(data['Date Year'], errors='coerce')
-data['Trend Data County Value'] = pd.to_numeric(data['Trend Data County Value'], errors='coerce')
-data['Three Year Average County Value'] = pd.to_numeric(data['Three Year Average County Value'], errors='coerce')
+data = pd.read_csv('CHIRS_cancer_data.csv')
 
 # Create a list of unique counties and indicators for dropdown options
 counties = data['County Name'].unique()
