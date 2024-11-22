@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from dash.dependencies import Input, Output
 
-df = pd.read_csv('CHIRS_Trend_Data.csv')
+df = pd.read_csv('CHIRS_cancer_data.csv')
 cancer_data = df[df['Health Topic']=='Cancer Indicators']
 
 # Preprocess the data
