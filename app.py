@@ -123,7 +123,10 @@ def toggle_animation(n_clicks):
     if n_clicks > 0:
         return False  # Enable animation
     return True  # Disable animation
+    
+server = app.server
 
-# Main function to run the app
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# Running the app
+if __name__ == '__main__':    
+    port = int(os.getenv("PORT", "10000"))  # Default to 10000 if PORT is not set
+    app.run_server(host="0.0.0.0", port=port, debug=True)
